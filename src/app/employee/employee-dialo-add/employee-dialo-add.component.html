@@ -1,0 +1,267 @@
+<!-- <h2 mat-dialog-title>Add employee</h2>
+<mat-form-field>
+    <mat-label>employe first name</mat-label>
+    <input matInput [(ngModel)]="data.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>employe last name</mat-label>
+    <input matInput [(ngModel)]="data.lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>employe id</mat-label>
+    <input matInput [(ngModel)]="data.id">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>employe birthdate</mat-label>
+    <input matInput [(ngModel)]="data.birthdate">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>employe gender</mat-label>
+    <input matInput formcontrol="data.gender">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+///
+ <mat-dialog-content>
+  <form [formGroup]="EmployeeAddForm" class="addForm">
+    <h5>all of fields are required!</h5>
+   <div class="form-group"> 
+    <mat-form-field>
+      <label for="firstName"></label>
+      <input  type="text" id="firstName" formControlName="firstName" class="form-control" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <label for="lastName">lastName</label>
+      <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+    </mat-form-field>
+    <mat-form-field>
+      <label for="id">id</label>
+      <input type="number" id="id" formControlName="id" class="form-control" required>
+    </mat-form-field>
+    <mat-form-field>
+      <label for="gender">gender</label>
+      <select id="gender" formControlName="gender" class="form-control">
+        <option [value]="Male">Male</option>
+        <option [value]="Female">Female</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field> <label for="startDate">startDate</label>
+      <input type="date" id="startDate" formControlName="startDate" class="form-control" required>
+    </mat-form-field>
+    <mat-form-field>
+      <label for="birthdate">birthdate</label>
+      <input type="date" id="birthdate" formControlName="birthdate" class="form-control" required>
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+      <span class="error" *ngIf="EmployeeAddForm.invalid">יש למלא את כל השדות החובה</span>
+    </mat-dialog-actions>
+  </form> -->
+<!-- <mat-dialog-content>
+    <form [formGroup]="employeeForm">
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>שם פרטי</mat-label>
+          <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>שם משפחה</mat-label>
+          <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>תאריך התחלה</mat-label>
+          <input type="date" id="startDate" formControlName="startDate" class="form-control" required>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>תאריך לידה</mat-label>
+          <input type="date" id="birthdate" formControlName="birthdate" class="form-control" required>
+        </mat-form-field>
+  
+         <mat-form-field>
+          <mat-label>מגדר</mat-label>
+          <select id="gender" formControlName="gender" class="form-control">
+            <option [value]="Male">גבר</option>
+            <option [value]="Female">אישה</option> 
+          </select>
+        </mat-form-field>
+  
+         <mat-form-field>
+          <mat-label>תפקידים</mat-label>
+          <mat-select multiple formControlName="roles">
+            <mat-option *ngFor="let role of roles" [value]="role.name">{{role.name}}</mat-option>
+          </mat-select>
+        </mat-form-field> 
+      </div>
+    </form>
+  </mat-dialog-content> 
+  
+   <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button [mat-dialog-close]="employee" cdkFocusInitial>אישור</button>
+  </mat-dialog-actions> -->
+<!-- ... -->
+<!-- <mat-dialog-content>
+  <form [formGroup]="employeeForm">
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>שם פרטי</mat-label>
+        <input type="text" id="firstName" formControlName="firstName" matInput class="form-control" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>שם משפחה</mat-label>
+        <input type="text" id="lastName" formControlName="lastName" matInput class="form-control" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>תאריך התחלה</mat-label>
+        <input type="date" id="startDate" formControlName="startDate" matInput class="form-control" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>תאריך לידה</mat-label>
+        <input type="date" id="birthdate" formControlName="birthdate" matInput class="form-control" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>מגדר</mat-label>
+        <select id="gender" formControlName="gender" class="form-control">
+          <option value="">בחר מגדר</option>
+          <option [value]="0">גבר</option>
+          <option [value]="1">אישה</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>תפקידים</mat-label>
+        <mat-select multiple formControlName="roles" class="form-control">
+          <mat-option *ngFor="let role of roles" [value]="role.name">{{ role.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">ביטול</button>
+  <button mat-button [mat-dialog-close]="employeeForm.value" cdkFocusInitial
+    [disabled]="!employeeForm.valid">אישור</button>
+</mat-dialog-actions> -->
+
+
+<div class="container">
+  <form [formGroup]="employeeForm">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>שם פרטי</mat-label>
+          <input type="text" formControlName="firstName" matInput
+            [ngClass]="{'error-class': employeeForm.get('firstName')?.hasError('required')}">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <!-- <mat-form-field>
+          <mat-label>שם משפחה</mat-label>
+          <input type="text" formControlName="lastName" matInput [errorClass]="errorClass">
+          <mat-error *ngIf="employeeForm.get('lastName')?.hasError('required')">
+            חובה להזין שם משפחה
+          </mat-error>
+        </mat-form-field> -->
+          <mat-form-field>
+            <mat-label>שם משפחה</mat-label>
+            <input type="text" formControlName="lastName" matInput
+              [ngClass]="{'error-class': employeeForm.get('lastName')?.hasError('required')}">
+          </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>מס' זהות</mat-label>
+          <input type="number" formControlName="id" matInput
+            [ngClass]="{'error-class': employeeForm.get('id')?.hasError('required')}">
+        </mat-form-field>
+      </div>
+      <!-- <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>תאריך תחילת עבודה</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="employeeForm.get('startDate')?.hasError('required')">
+            חובה לבחור תאריך תחילת עבודה
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+   
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>תאריך לידה</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-error *ngIf="employeeForm.get('birthDate')?.hasError('required')">
+            חובה לבחור תאריך לידה
+          </mat-error>
+        </mat-form-field>
+      </div> -->
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>תאריך תחילת עבודה</mat-label>
+          <input matInput [min]="minStartDate" [max]="maxStartDate" [matDatepicker]="startDatePicker" formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+          <mat-error *ngIf="employeeForm.get('startDate')?.hasError('required')">
+            חובה לבחור תאריך תחילת עבודה
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>תאריך לידה</mat-label>
+          <input matInput [min]="minBirthDate" [max]="maxBirthDate" [matDatepicker]="birthDatepicker" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="birthDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #birthDatepicker></mat-datepicker>
+          <mat-error *ngIf="employeeForm.get('birthDate')?.hasError('required')">
+            חובה לבחור תאריך לידה
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>מין</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let gender of genders" [value]="gender">
+              {{ gender }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="employeeForm.invalid">
+          שמירה
+        </button>
+        <button mat-button color="accent" (click)="onCancel()">
+          ביטול
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
